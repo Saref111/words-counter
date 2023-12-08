@@ -11,10 +11,6 @@ const unitToCountMethodsMap = {
 };
 
 countButton.addEventListener("click", () => {
-    const wA = unitToCountMethodsMap[unitToCount.value](textArea.value)
-    const fWA = wA.filter((it) => it);
-    console.log(wA);
-    console.log(fWA);
     const r = unitToCountMethodsMap[unitToCount.value](textArea.value).filter((it) => it).length;
     result.innerText = r + " " + unitToCount.value;
 });
