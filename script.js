@@ -6,6 +6,7 @@ const unitToCountMethodsMap = {
     'letters': (text) => text.split("").filter((it) => it.match(/[a-zA-Z]/)),
     'sentences': (text) => text.split("."),
     'paragraphs': (text) => text.split("\n"),
+    'whitespaces': (text) => text.split("").filter((it) => it.match(/\s/)),
 };
 
 countButton.addEventListener('click', () => {
