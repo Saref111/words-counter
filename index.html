@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Words counter</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <textarea id="textarea"></textarea>
-  <button id="countButton">Count</button>
-  <p>Result: <span id="result"> - </span> words</p>
+  <h1>Words counter</h1>
+  <textarea id="textArea"></textarea>
+  <div class="flex">
+    <button id="countButton">Count</button>
+    <select name="unitToCount" id="unitToCount">
+      <option value="words" selected>Words</option>
+      <option value="characters">Characters</option>
+      <option value="letters">Letters</option>
+      <option value="sentences">Senteces</option>
+      <option value="paragraphs">Paragraphs / Lines</option>
 
-  <script>
-    countButton.addEventListener('click', () => {
-      const r = textarea.value.split(" ").length;
-        result.innerText = r;
-    });
-  </script>
+    </select>
+    <p>Result: <span id="result"> - </span></p>
+  </div>
+  <script type="module" src="./script.js"></script>
 </body>
 </html>
