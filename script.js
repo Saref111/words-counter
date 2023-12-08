@@ -1,15 +1,20 @@
 // All explicitly undeclared variables are in global scope from id attribute in HTML
 
 const unitToCountMethodsMap = {
-    'words': (text) => text.split(" "),
-    'characters': (text) => text.split(""),
-    'letters': (text) => text.split("").filter((it) => it.match(/[a-zA-Z]/)),
-    'sentences': (text) => text.split("."),
-    'paragraphs': (text) => text.split("\n"),
-    'whitespaces': (text) => text.split("").filter((it) => it.match(/\s/)),
+    "words": (text) => text.replace(/\n/g, " ").split(" "),
+    "characters": (text) => text.replace(/\s/g, "").split(""),
+    "letters": (text) => text.split("").filter((it) => it.match(/[a-zA-Z]/)),
+    "sentences": (text) => text.replace(/[!?]/g, ".").split(".").filter((it) => it),
+    "paragraphs": (text) => text.split("\n"),
+    "whitespaces": (text) => text.split("").filter((it) => it.match(/\s/)),
+    "all": (text) => text.split("")
 };
 
-countButton.addEventListener('click', () => {
+countButton.addEventListener("click", () => {
+    const wA = unitToCountMethodsMap[unitToCount.value](textArea.value)
+    const fWA = wA.filter((it) => it);
+    console.log(wA);
+    console.log(fWA);
     const r = unitToCountMethodsMap[unitToCount.value](textArea.value).filter((it) => it).length;
     result.innerText = r + " " + unitToCount.value;
 });
