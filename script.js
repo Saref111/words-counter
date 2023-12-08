@@ -1,15 +1,14 @@
 // All explicitly undeclared variables are in global scope from id attribute in HTML
 
 const unitToCountMethodsMap = {
-    'words': (text) => text.split(" ").filter((it) => it),
-    'characters': (text) => text.split("").filter((it) => it),
-    'letters': (text) => text.split("").filter((it) => it).filter((it) => it.match(/[a-zA-Z]/)),
-    'sentences': (text) => text.split(".").filter((it) => it),
-    'paragraphs': (text) => text.split("\n").filter((it) => it),
+    'words': (text) => text.split(" "),
+    'characters': (text) => text.split(""),
+    'letters': (text) => text.split("").filter((it) => it.match(/[a-zA-Z]/)),
+    'sentences': (text) => text.split("."),
+    'paragraphs': (text) => text.split("\n"),
 };
 
 countButton.addEventListener('click', () => {
-    console.log(unitToCount.value);
-    const r = unitToCountMethodsMap[unitToCount.value](textArea.value).length;
-      result.innerText = r + " " + unitToCount.value;
+    const r = unitToCountMethodsMap[unitToCount.value](textArea.value).filter((it) => it).length;
+    result.innerText = r + " " + unitToCount.value;
 });
