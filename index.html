@@ -10,11 +10,21 @@
 <body>
   <main>
     <h1>Words counter</h1>
-    <textarea id="textArea">Starting at $4/mo
-      We offer a wide range of shared and dedicated vCPU Droplets.
-      Connect with SSH or our in-app console.
-      Manage backups, snapshots, and deploy custom images.
-      Monitor performance metrics</textarea>
+    <div class="textarea">
+      <textarea
+        name="textArea" 
+        class="textarea__text-area" 
+        id="textArea" 
+        placeholder="Paste your text here..."
+      ></textarea>
+      <button 
+        type="button" 
+        id="clearButton"
+        class="textarea__clear-button"
+        aria-label="Clear text area"
+      ></button>
+    </div>
+   
     <div class="flex">
       <button id="countButton">Count</button>
       <select name="unitToCount" id="unitToCount">
